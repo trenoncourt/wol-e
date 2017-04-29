@@ -22,7 +22,9 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+
+      '@flexboxgrid': resolve('node_modules/flexboxgrid/dist/flexboxgrid.min.css')
     }
   },
   module: {
