@@ -1,12 +1,18 @@
 <template>
   <div>
+    <wol-btn :on="true"></wol-btn>
   </div>
 </template>
 
 <script>
+import WolBtn from '../components/Button.vue'
+
 export default {
-  data: {
-    
+  components: { WolBtn },
+  data () {
+    return {
+      computers: []
+    }
   }
 }
 </script>

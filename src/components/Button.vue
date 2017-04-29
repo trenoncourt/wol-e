@@ -1,3 +1,131 @@
 <template>
-    
+  <div class="wol-btn">
+    <a href="#" v-bind:class="{ on: on}">&#xF011;</a>
+    <span></span>
+  </div>
 </template>
+
+<script>
+  module.exports = {
+    props: {
+      on: Boolean
+    },
+    data () {
+      return {
+        on: false
+      }
+    }
+  }
+</script>
+
+<style lang="less" scoped>
+@color_1: rgb(37,37,37);
+@color_2: #fff;
+@font_family_1: "FontAwesome";
+@background_color_1: rgb(83,87,93);
+@background_color_2: rgb(26,27,29);
+@background_color_3: rgb(226,0,0);
+@background_color_4: rgb(135,187,83);
+
+.wol-btn {
+	margin: 150px auto 0;
+	width: 75px;
+	height: 95px;
+	position: relative;
+	text-align: center;
+}
+:active, :focus {
+	outline: 0;
+}
+
+/** Font-Face **/
+@font-face {
+	font-family: "FontAwesome";
+	src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot");
+	src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix") format('eot'), 
+    url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff") format('woff'), 
+    url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf") format('truetype'), 
+    url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg") format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/** Styling the Button **/
+/* Styling the Indicator light */
+a {
+	font-family: @font_family_1;
+	text-shadow: 0px 1px 1px rgba(250,250,250,0.1);
+	font-size: 32pt;
+	display: block;
+	position: relative;
+	text-decoration: none;
+	box-shadow: 0px 3px 0px 0px rgb(34,34,34), 0px 7px 10px 0px rgb(17,17,17), inset 0px 1px 1px 0px rgba(250, 250, 250, .2), inset 0px -12px 35px 0px rgba(0, 0, 0, .5);
+	width: 70px;
+	height: 70px;
+	border: 0;
+	color: @color_1;
+	border-radius: 35px;
+	text-align: center;
+	line-height: 79px;
+	background-color: @background_color_1;
+	transition: color 350ms ease, text-shadow 350ms;
+	-o-transition: color 350ms ease, text-shadow 350ms;
+	-moz-transition: color 350ms ease, text-shadow 350ms;
+	-webkit-transition: color 350ms ease, text-shadow 350ms;
+	&:before {
+		content: "";
+		width: 80px;
+		height: 80px;
+		display: block;
+		z-index: -2;
+		position: absolute;
+		background-color: @background_color_2;
+		left: -5px;
+		top: -2px;
+		border-radius: 40px;
+		box-shadow: 0px 1px 0px 0px rgba(250,250,250,0.1), inset 0px 1px 2px rgba(0, 0, 0, 0.5);
+	}
+	&:active {
+		box-shadow: 0px 0px 0px 0px rgb(34,34,34), 0px 3px 7px 0px rgb(17,17,17), inset 0px 1px 1px 0px rgba(250, 250, 250, .2), inset 0px -10px 35px 5px rgba(0, 0, 0, .5);
+		background-color: @background_color_1;
+		top: 3px;
+		&:before {
+			top: -5px;
+			background-color: @background_color_2;
+			box-shadow: 0px 1px 0px 0px rgba(250,250,250,0.1), inset 0px 1px 2px rgba(0, 0, 0, 0.5);
+		}
+	}
+	&+span {
+		display: block;
+		width: 8px;
+		height: 8px;
+		background-color: @background_color_3;
+		box-shadow: inset 0px 1px 0px 0px rgba(250,250,250,0.5), 0px 0px 3px 2px rgba(226,0,0,0.5);
+		border-radius: 4px;
+		clear: both;
+		position: absolute;
+		bottom: 0;
+		left: 42%;
+		transition: background-color 350ms, box-shadow 700ms;
+		-o-transition: background-color 350ms, box-shadow 700ms;
+		-moz-transition: background-color 350ms, box-shadow 700ms;
+		-webkit-transition: background-color 350ms, box-shadow 700ms;
+	}
+}
+a.on {
+	box-shadow: 0px 0px 0px 0px rgb(34,34,34), 0px 3px 7px 0px rgb(17,17,17), inset 0px 1px 1px 0px rgba(250, 250, 250, .2), inset 0px -10px 35px 5px rgba(0, 0, 0, .5);
+	background-color: @background_color_1;
+	top: 3px;
+	color: @color_2;
+	text-shadow: 0px 0px 3px rgb(250,250,250);
+	&:before {
+		top: -5px;
+		background-color: @background_color_2;
+		box-shadow: 0px 1px 0px 0px rgba(250,250,250,0.1), inset 0px 1px 2px rgba(0, 0, 0, 0.5);
+	}
+	&+span {
+		box-shadow: inset 0px 1px 0px 0px rgba(250,250,250,0.5), 0px 0px 3px 2px rgba(135,187,83,0.5);
+		background-color: @background_color_4;
+	}
+}
+
+</style>
