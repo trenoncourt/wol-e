@@ -14,11 +14,20 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "@kazupon/vue-i18n-loader": "^0.1.1",
+    "compass": "^0.1.1",
+    "compass-mixins": "^0.12.10",
     "flexboxgrid": "^6.3.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3",
     "vue": "^2.2.6",
-    "vue-router": "^2.3.1"
+    "vue-click-outside": "^1.0.5",
+    "vue-i18n": "^6.1.1",
+    "vue-i18n-loader": "^1.0.0",
+    "vue-router": "^2.3.1",
+    "yaml-loader": "^0.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
