@@ -1,6 +1,6 @@
 <template>
   <div class="wol-btn">
-    <a href="#" v-bind:class="{ on: on}">&#xF011;</a>
+    <a href="#" :class="{ on: on}">&#xF011;</a>
     <span></span>
   </div>
 </template>
@@ -41,9 +41,9 @@
 @font-face {
 	font-family: "FontAwesome";
 	src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot");
-	src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix") format('eot'), 
-    url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff") format('woff'), 
-    url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf") format('truetype'), 
+	src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix") format('eot'),
+    url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff") format('woff'),
+    url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf") format('truetype'),
     url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg") format('svg');
 	font-weight: normal;
 	font-style: normal;

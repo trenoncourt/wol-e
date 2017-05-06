@@ -15,16 +15,14 @@ export default {
   components: { WolBtn, Card },
   data () {
     return {
-      computers: [
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-        {}
-      ]
+      computers: []
     }
+  },
+  mounted () {
+    this.$computersResource = this.$resource('computers')
+    this.$computersResource.get().then(response => {
+      this.computers = response.body
+    })
   }
 }
 </script>
