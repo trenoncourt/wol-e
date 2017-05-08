@@ -48,6 +48,10 @@ export default {
 <style lang="less" scoped>
   h1, h2 {
     color: lightgray;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
   }
 .card {
   height: 340px;

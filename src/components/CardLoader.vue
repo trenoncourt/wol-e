@@ -19,7 +19,7 @@
   .loader {
     height: 15px;
     width: 100px;
-    margin: 70% auto auto;
+    margin: 45% auto auto;
   }
 
   .loader > div {
