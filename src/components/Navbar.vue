@@ -1,27 +1,21 @@
 <i18n>
 {
   "en-US": {
-    "hello": "hello world!"
   },
   "fr-FR": {
-    "hello": "hello world!"
   }
 }
 </i18n>
 
 <template>
   <header class="header" v-click-outside="close">
-    
+
     <a href="#" class="navbar-switcher" @click="open"></a>
     <a href="#" class="navbar-logo">Wol-e</a>
-    
+
     <nav class="menu">
-	  <a href="#">{{ $t('hello') }}</a>
-	  <a href="#">About</a>
-	  <a href="#">Blog</a>
-	  <a href="#">Contact</a>
     </nav>
-    
+
   </header>
 </template>
 
