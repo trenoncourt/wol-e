@@ -11,7 +11,14 @@ export default {
   components: { WolBtn },
   props: { computer: Object },
   mounted () {
-    console.log(this.computer)
+    this.computer.state = false
+    // eslint-disable-next-line no-undef
+    this.$http.post(__PING_API_URL__, this.computer.ipAdress).then(response => {
+      this.computer.state = (response.body === '1')
+    }, error => {
+      this.computer.state = false
+      console.log(error)
+    })
   }
 }
 </script>

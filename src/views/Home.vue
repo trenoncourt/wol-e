@@ -10,7 +10,7 @@
 
 <script>
 import WolBtn from '../components/Button.vue'
-import Card from '../components/Card.vue'
+import Card from '../components/ComputerCard.vue'
 import Loader from '../components/Loader.vue'
 
 export default {
@@ -24,23 +24,11 @@ export default {
   mounted () {
     this.$computersResource = this.$resource('computers')
     this.$computersResource.get().then(response => {
-      let promises = []
       let computers = response.body
       for (let computer of computers) {
-        // eslint-disable-next-line no-undef
-        promises.push(this.$http.post(__PING_API_URL__, computer.ipAdress).then(response => {
-          computer.state = (response.body === '1')
-        }, error => {
-          computer.state = false
-          console.log(error)
-        }))
+        computer.state = false
       }
-      Promise.all(promises).then(values => {
-        this.computers = computers
-      })
-      response.json().then(json => {
-        this.computers
-      })
+      this.computers = computers
       this.loading = false
     })
   }
