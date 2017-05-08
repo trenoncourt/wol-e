@@ -1,30 +1,56 @@
+<i18n>
+{
+  "en-US": {
+    "ipAdress": "Ip adress"
+  },
+  "fr-FR": {
+    "ipAdress": "Adresse ip"
+  }
+}
+</i18n>
+
 <template>
   <div class="card">
-    <wol-btn :on="computer.state"></wol-btn>
+    <h1>{{ computer.name }}</h1>
+    <h2>{{ $t('ipAdress') }}: {{computer.ipAdress}}</h2>
+    <wol-btn :on="computer.state" v-if="loaded"></wol-btn>
+    <card-loader v-else></card-loader>
   </div>
 </template>
 
 <script>
 import WolBtn from '../components/Button.vue'
+import CardLoader from '../components/CardLoader.vue'
 
 export default {
-  components: { WolBtn },
+  components: { WolBtn, CardLoader },
   props: { computer: Object },
+  data () {
+    return {
+      loaded: false
+    }
+  },
   mounted () {
     this.computer.state = false
     // eslint-disable-next-line no-undef
     this.$http.post(__PING_API_URL__, this.computer.ipAdress).then(response => {
       this.computer.state = (response.body === '1')
+      this.loaded = true
     }, error => {
       this.computer.state = false
       console.log(error)
+      this.loaded = true
     })
   }
 }
 </script>
 
 <style lang="less" scoped>
+  h1, h2 {
+    color: lightgray;
+  }
 .card {
+  height: 340px;
   background: rgba(50, 50, 50, 0.1);
   max-width: 400px;
   margin: 10px;

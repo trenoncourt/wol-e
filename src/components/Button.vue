@@ -29,7 +29,7 @@
 @background_color_4: rgb(135,187,83);
 
 .wol-btn {
-	margin: 150px auto 0;
+	margin: 60px auto 0;
 	width: 75px;
 	height: 95px;
 	position: relative;
