@@ -20,7 +20,8 @@ module.exports = {
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report,
-    apiUrl: "'http://localhost:18088/api'"
+    computersApiUrl: "'http://localhost:18088/api'",
+    pingApiUrl: "'http://localhost:30730/ping'"
   },
   dev: {
     env: require('./dev.env'),
@@ -35,6 +36,7 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false,
-    apiUrl: "'http://localhost:18088/api'"
+    computersApiUrl: "'http://localhost:18088/api'",
+    pingApiUrl: "'http://localhost:30730/ping'"
   }
 }

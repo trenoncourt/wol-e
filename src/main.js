@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueResource)
 // eslint-disable-next-line no-undef
-Vue.http.options.root = __API_URL__
+Vue.http.options.root = __COMPUTERS_API_URL__
 
 /* eslint-disable no-new */
 new Vue({

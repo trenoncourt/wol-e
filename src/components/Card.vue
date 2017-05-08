@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <wol-btn></wol-btn>
+    <wol-btn :on="computer.state"></wol-btn>
   </div>
 </template>
 
@@ -8,7 +8,11 @@
 import WolBtn from '../components/Button.vue'
 
 export default {
-  components: { WolBtn }
+  components: { WolBtn },
+  props: { computer: Object },
+  mounted () {
+    console.log(this.computer)
+  }
 }
 </script>
 
@@ -18,7 +22,7 @@ export default {
   max-width: 400px;
   margin: 10px;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
     rgba(0, 0, 0, 0.23);
   box-sizing: border-box;
   padding: 48px;

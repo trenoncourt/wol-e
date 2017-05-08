@@ -20,7 +20,8 @@ module.exports = merge(baseWebpackConfig, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
-      '__API_URL__': config.dev.apiUrl
+      '__COMPUTERS_API_URL__': config.dev.computersApiUrl,
+      '__PING_API_URL__': config.dev.pingApiUrl
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),

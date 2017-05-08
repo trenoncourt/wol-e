@@ -13,6 +13,9 @@
     data () {
       return {
       }
+    },
+    mounted () {
+      console.log(this.on)
     }
   }
 </script>
