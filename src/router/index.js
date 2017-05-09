@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: resolve => import('../views/Home.vue').then(m => resolve(m))
+      component: () => import('../views/Home.vue')
     }
   ]
 })

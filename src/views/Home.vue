@@ -5,7 +5,6 @@
       <card class="top" :computer="computer"></card>
     </div>
     <fab-modal></fab-modal>
-    <dark-button></dark-button>
   </div>
 </template>
 
@@ -15,9 +14,10 @@ import Card from '../components/ComputerCard.vue'
 import Loader from '../components/Loader.vue'
 import FabModal from '../components/FabModal.vue'
 import DarkButton from '../components/DarkButton.vue'
+import DarkButtonIndicator from '../components/DarkButtonIndicator.vue'
 
 export default {
-  components: { WolBtn, Card, Loader, FabModal, DarkButton },
+  components: { WolBtn, Card, Loader, FabModal, DarkButton, DarkButtonIndicator },
   data () {
     return {
       computers: [],

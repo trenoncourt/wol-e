@@ -13,7 +13,7 @@
   <div class="card">
     <h1>{{ computer.name }}</h1>
     <h2>{{ computer.ipAdress }}</h2>
-    <wol-btn :on="computer.state" v-if="loaded"></wol-btn>
+    <dark-button-indicator class="button-wrapper" :on="computer.state" v-if="loaded" icon="&#xF011;"></dark-button-indicator>
     <card-loader v-else></card-loader>
   </div>
 </template>
@@ -21,9 +21,10 @@
 <script>
 import WolBtn from '../components/Button.vue'
 import CardLoader from '../components/CardLoader.vue'
+import DarkButtonIndicator from './DarkButtonIndicator.vue'
 
 export default {
-  components: { WolBtn, CardLoader },
+  components: { WolBtn, CardLoader, DarkButtonIndicator },
   props: { computer: Object },
   data () {
     return {
@@ -65,4 +66,12 @@ export default {
   padding: 48px;
   text-align: center;
 }
+
+  .button-wrapper {
+    margin: 60px auto 0;
+    width: 75px;
+    height: 95px;
+    position: relative;
+    text-align: center;
+  }
 </style>

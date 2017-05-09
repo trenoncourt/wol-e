@@ -1,8 +1,9 @@
 <!--suppress CssRedundantUnit -->
 <template>
-  <div class="flex">
-    <a href="#" @click.prevent="openClose" :class="{ opened: opened }">+</a>
-    <div class="modal" v-if="opened">
+  <div class="flex">:icon="'&#xf067;'"
+    <dark-button id="fab-add-computer" class="fab-fixed" icon="&#xf067;" :class="{opened: opened}" ></dark-button>
+    <!--<a class="">&#xf067;</a>-->
+    <div class="modal"  >
       <div class="inner-modal">
         <div class="content">
           <h1>Modal Content</h1>
@@ -14,7 +15,9 @@
 </template>
 
 <script>
+  import DarkButton from './DarkButton.vue'
   export default {
+    components: {DarkButton},
     data () {
       return {
         opened: false
@@ -22,8 +25,17 @@
     },
     methods: {
       openClose () {
+        console.log('ok')
         this.opened = !this.opened
+        console.log(this.opened)
       }
+    },
+    mounted () {
+      document.querySelector('#fab-add-computer').addEventListener('click', function (e) {
+        console.log(e)
+        e.preventDefault()
+        this.classList.toggle('opened')
+      })
     }
   }
 </script>
@@ -55,6 +67,41 @@
   }
   .flex {
     display: flex;
+    .opened {
+      top: -230px;
+      left: -80px;
+      transform: rotate(-49deg);
+      transform-origin: 650%;
+      & ~ .modal .inner-modal {
+        width: 200vw;
+        height: 200vw;
+        .content {
+          opacity: 1;
+          transition-delay: .5s;
+        }
+      }
+      &:active {
+        top: -250px;
+      }
+    }
+  }
+
+  .fab-fixed{
+    position: fixed;
+    top: calc(~"100% - 95px");
+    left: calc(~"100% - 95px");
+    z-index: 2;
+    transform-origin: 50%;
+    transform: rotate(180deg);
+    transition: all .7s ease;
+    backface-visibility: hidden;
+    box-shadow: 0px -3px 0px 0px rgb(34,34,34), 0px -7px 10px 0px rgb(17,17,17), inset 0px -1px 1px 0px rgba(250, 250, 250, .2), inset 0px 12px 35px 0px rgba(0, 0, 0, .5);
+    &:active {
+      top: calc(~"100% - 92px");
+    }
+    & > {
+      padding-top: 15px;
+    }
   }
   .modal {
     border-radius: 50%;
@@ -67,62 +114,27 @@
     z-index: 1;
     top: 0;
     left: 0;
-  .inner-modal {
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: none;
-    background: #01579B;
-    width: 0;
-    height: 0;
-    transition: all .4s ease-in .4s;
-    backface-visibility: hidden;
-  .content {
-    opacity: 0;
-    transition: opacity .4s ease;
-    backface-visibility: hidden;
-    color: #fefefe;
-    text-align: center;
-    max-width: 90vw;
-    max-height: 90vh;
-  }
-  }
+    .inner-modal {
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+      background: #01579B;
+      width: 0;
+      height: 0;
+      transition: all .4s ease-in .4s;
+      backface-visibility: hidden;
+      .content {
+        opacity: 0;
+        transition: opacity .4s ease;
+        backface-visibility: hidden;
+        color: #fefefe;
+        text-align: center;
+        max-width: 90vw;
+        max-height: 90vh;
+      }
+    }
   }
 
-  a {
-    font-family: @font_family_1;
-    text-shadow: 0 1px 1px rgba(250,250,250,0.1);
-    font-size: 32pt;
-    display: block;
-    position: fixed;
-    top: calc(~"100% - 95px");
-    left: calc(~"100% - 95px");
-    text-decoration: none;
-    box-shadow: 0 3px 0 0 rgb(34,34,34), 0 7px 10px 0 rgb(17,17,17), inset 0 1px 1px 0 rgba(250, 250, 250, .2), inset 0px -12px 35px 0px rgba(0, 0, 0, .5);
-    width: 70px;
-    height: 70px;
-    border: 0;
-    color: @color_1;
-    border-radius: 35px;
-    text-align: center;
-    line-height: 79px;
-    background-color: @background_color_1;
-  }
-  a.on {
-    box-shadow: 0 0px 0px 0px rgb(34,34,34), 0px 3px 7px 0px rgb(17,17,17), inset 0px 1px 1px 0px rgba(250, 250, 250, .2), inset 0px -10px 35px 5px rgba(0, 0, 0, .5);
-    background-color: @background_color_1;
-    top: 3px;
-    color: @color_2;
-    text-shadow: 0px 0px 3px rgb(250,250,250);
-    &:before {
-      top: -5px;
-      background-color: @background_color_2;
-      box-shadow: 0px 1px 0px 0px rgba(250,250,250,0.1), inset 0px 1px 2px rgba(0, 0, 0, 0.5);
-    }
-    &+span {
-      box-shadow: inset 0px 1px 0px 0px rgba(250,250,250,0.5), 0px 0px 3px 2px rgba(135,187,83,0.5);
-      background-color: @background_color_4;
-    }
-  }
 </style>

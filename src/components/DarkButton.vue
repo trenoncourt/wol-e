@@ -1,7 +1,16 @@
 <!--suppress CssRedundantUnit -->
 <template>
-  <a href="#">&#xf067;</a>
+  <a href="#" :class="{on: on}" v-html="icon"></a>
 </template>
+
+<script>
+  export default {
+    props: {
+      on: Boolean,
+      icon: String
+    }
+  }
+</script>
 
 <style lang="less" scoped>
   @color_icon: rgb(37,37,37);
@@ -36,19 +45,7 @@
     -o-transition: color 350ms ease, text-shadow 350ms;
     -moz-transition: color 350ms ease, text-shadow 350ms;
     -webkit-transition: color 350ms ease, text-shadow 350ms;
-    &:before {
-      content: "";
-      width: 80px;
-      height: 80px;
-      display: block;
-      z-index: -2;
-      position: absolute;
-      background-color: @background_button_back_color;
-      left: -5px;
-      top: -2px;
-      border-radius: 40px;
-      box-shadow: 0px 1px 0px 0px rgba(250,250,250,0.1), inset 0px 1px 2px rgba(0, 0, 0, 0.5);
-    }
+
     &:active {
       box-shadow: 0px 0px 0px 0px rgb(34,34,34), 0px 3px 7px 0px rgb(17,17,17), inset 0px 1px 1px 0px rgba(250, 250, 250, .2), inset 0px -10px 35px 5px rgba(0, 0, 0, .5);
       background-color: @background_button_color;

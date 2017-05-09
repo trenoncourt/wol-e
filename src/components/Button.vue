@@ -36,8 +36,8 @@
 	text-align: center;
 }
 :active, :focus {
-	outline: 0;
-}
+   outline: 0;
+ }
 
 /** Font-Face **/
 @font-face {
