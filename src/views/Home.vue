@@ -1,10 +1,11 @@
 <template>
   <div class="row top-lg top-xs">
     <loader :visible="loading"></loader>
-
     <div v-for="computer in computers" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <card class="top" :computer="computer"></card>
     </div>
+    <fab-modal></fab-modal>
+    <dark-button></dark-button>
   </div>
 </template>
 
@@ -12,9 +13,11 @@
 import WolBtn from '../components/Button.vue'
 import Card from '../components/ComputerCard.vue'
 import Loader from '../components/Loader.vue'
+import FabModal from '../components/FabModal.vue'
+import DarkButton from '../components/DarkButton.vue'
 
 export default {
-  components: { WolBtn, Card, Loader },
+  components: { WolBtn, Card, Loader, FabModal, DarkButton },
   data () {
     return {
       computers: [],
@@ -35,6 +38,10 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-@import '~@flexboxgrid';
+<style lang="less">
+  @import '~@flexboxgrid';
+
+  html, body, #app {
+    height:100%;
+  }
 </style>

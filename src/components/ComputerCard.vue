@@ -12,7 +12,7 @@
 <template>
   <div class="card">
     <h1>{{ computer.name }}</h1>
-    <h2>{{ $t('ipAdress') }}: {{computer.ipAdress}}</h2>
+    <h2>{{ computer.ipAdress }}</h2>
     <wol-btn :on="computer.state" v-if="loaded"></wol-btn>
     <card-loader v-else></card-loader>
   </div>

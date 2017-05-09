@@ -29,11 +29,9 @@ export default {
   methods: {
     close () {
       this.$emit('close')
-      console.log('close')
     },
     open () {
       this.$emit('open')
-      console.log('open')
     }
   }
 }
