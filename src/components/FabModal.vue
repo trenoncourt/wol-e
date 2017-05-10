@@ -1,13 +1,11 @@
 <!--suppress CssRedundantUnit -->
 <template>
   <div class="flex">:icon="'&#xf067;'"
-    <dark-button id="fab-add-computer" class="fab-fixed" icon="&#xf067;" :class="{opened: opened}" ></dark-button>
-    <!--<a class="">&#xf067;</a>-->
+    <dark-button id="fab-add-computer" class="fab-fixed" icon="&#xf067;" @click.native="openClose" :class="{opened: opened}" :on="opened" ></dark-button>
     <div class="modal"  >
       <div class="inner-modal">
         <div class="content">
-          <h1>Modal Content</h1>
-          <p>Pretty nifty.</p>
+          <slot>toto</slot>
         </div>
       </div>
     </div>
@@ -20,22 +18,13 @@
     components: {DarkButton},
     data () {
       return {
-        opened: false
+        opened: true
       }
     },
     methods: {
       openClose () {
-        console.log('ok')
         this.opened = !this.opened
-        console.log(this.opened)
       }
-    },
-    mounted () {
-      document.querySelector('#fab-add-computer').addEventListener('click', function (e) {
-        console.log(e)
-        e.preventDefault()
-        this.classList.toggle('opened')
-      })
     }
   }
 </script>
@@ -100,7 +89,8 @@
       top: calc(~"100% - 92px");
     }
     & > {
-      padding-top: 15px;
+      text-align: center;
+      line-height: 75px;
     }
   }
   .modal {
